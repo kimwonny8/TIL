@@ -1,4 +1,4 @@
-```
+```java
 dependencies {
 	// springboot 기본 설정
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -31,7 +31,7 @@ dependencies {
 
 application.properties
 
-```
+```properties
 server.port = 9960
 
 spring.datasource.driverClassName=org.mariadb.jdbc.Driver
@@ -48,15 +48,11 @@ jpa.properties.generate-ddl = true
 
 logging.level.org.hibernate.SQL = debug
 logging.level.org.hibernate.type = trace
-
-# JPA
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=update
 ```
 
 
 
-```
+```vue
 const path = require("path");
 
 module.exports = {
@@ -77,3 +73,4 @@ Mybatis?
 
 https://khj93.tistory.com/entry/MyBatis-MyBatis%EB%9E%80-%EA%B0%9C%EB%85%90-%EB%B0%8F-%ED%95%B5%EC%8B%AC-%EC%A0%95%EB%A6%AC
 
+https://data-make.tistory.com/614 JPQL
