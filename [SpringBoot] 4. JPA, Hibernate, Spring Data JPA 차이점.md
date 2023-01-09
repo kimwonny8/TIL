@@ -14,7 +14,7 @@ JPA를 알기 전에 ORM을 먼저 알아야한다.
 ## JPA?
 
 - 스프링부트는 JPA(Java Persistence API)를 사용하여 데이터베이스를 처리
-- 자바에서 ORM의 기술 표준으로 사용하는 인터페이스의 모음
+- 자바에서 ORM의 기술 표준으로 사용하는 **인터페이스**의 모음(라이브러리 X)
 - 자바 어플리케이션과 JDBC 사이에서 동작
 
 
@@ -53,12 +53,36 @@ JPA를 알기 전에 ORM을 먼저 알아야한다.
 
 
 
+JPA는 라이브러리가 아니고 인터페이스기때문에 별다른 기능이 없다.
+
+⇒ JPA를 사용하기 위해서는 JPA를 구현한 Hibernate, EclipseLink, DataNucleus 같은 ORM 프레임워크를 사용해야 함!
+
+Hibernate가 가장 범용적으로 다양한 기능을 제공하기 때문에 Hibernate를 많이 사용
+
 # 📌 Hibernate
 
+- JPA 인터페이스를 구현(JPA의 구현체)
 
+- SQL을 사용하지않고 직관적인 코드(메소드)를 사용해 데이터 조작 가능
+
+- 내부적으로 JDBC API를 사용
+
+  
+
+  JDBC?
+
+  자바 프로그래밍 언어와 다양한 데이터베이스 SQL 또는 테이블 형태의 데이터 사이에 독립적인 연결을 지원하는 표준
 
 # 📌 Spring Data JPA
 
+- JPA를 쓰기 편하게 만들어 놓은 모듈
+
+- 기존 JPA는 EntityManager를 받아 사용해야 하지만, Spring Data JPA는 Repository 인터페이스를 제공함
+
+- 사용자가 Repository 인터페이스에 정해진 규칙대로 메소드를 입력하면,
+
+  Spring이 알아서 해당 메소드 이름에 적합한 쿼리를 날리는 구현체를 만들어서 **Bean**으로 등록해줌!
 
 
-[참고블로그](https://suhwan.dev/2019/02/24/jpa-vs-hibernate-vs-spring-data-jpa/)
+
+[참고 블로그](https://dev-coco.tistory.com/74) 
