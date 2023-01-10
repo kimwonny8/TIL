@@ -22,7 +22,7 @@
 
 <img src="https://melonicedlatte.com/assets/images/2021_3Q/spring_architect.png" style="zoom: 67%;" /> 
 
-[참고블로그](https://melonicedlatte.com/2021/07/11/174700.html)
+[참고 블로그](https://melonicedlatte.com/2021/07/11/174700.html)
 
 # 📌 Spring Boot?
 

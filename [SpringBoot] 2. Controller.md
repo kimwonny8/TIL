@@ -20,7 +20,7 @@
 
 ![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbyW031%2FbtqGvdxw1uy%2FfUvpO1u7geOUk5exDaoNT1%2Fimg.png)
 
-# 📌 컨트롤러
+# 📌 Controller
 
 - src - main - java - com.example.backend(프로젝트명) 안에 
   - controller 패키지 - WebController 클래스 생성
