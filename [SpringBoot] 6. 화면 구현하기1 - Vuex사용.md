@@ -23,3 +23,4 @@ Vuex, Axios에 대한 자세한 내용은 다른 글에서 다루도록 하겠�
 - **수정하기** : axios.patch(url[, data[, config]])
 - **삭제하기** : axios.delete(url[, config])
 
+commit - post시 여러개 넘길 수 없음
