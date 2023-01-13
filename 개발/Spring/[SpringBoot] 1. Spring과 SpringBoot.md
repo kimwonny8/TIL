@@ -135,3 +135,46 @@
   annotationProcessor 'org.projectlombok:lombok'
   ```
 
+
+
+# 📌 Controller
+
+- src - main - java - com.example.backend(프로젝트명) 안에 
+  - controller 패키지 - WebController 클래스 생성
+
+``` java
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class MainController {
+
+    @GetMapping("/hello")
+    @ResponseBody
+    public void index() {
+    	return "hello";
+    }
+}
+```
+
+## @Controller
+
+- 이 WebController 클래스는 스프링부트의 컨트롤러가 됨
+
+## @GetMapping
+
+- 요청된 URL과의 매핑을 담당
+
+## @ResponseBody
+
+- URL요청에 대한 응답으로 문자열 리턴하라는 의미
+
+- 이 이노테이션 생략하면 hello라는 템플릿 파일을 찾게되는 것
+
+- ex) http://localhost:8080/hello 입력시 hello가 나오는 것을 볼 수 있음
+
+  들어가서 확인해보자! 
+
+
+

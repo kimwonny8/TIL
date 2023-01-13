@@ -12,3 +12,8 @@ implementation 'org.springframework.boot:spring-boot-starter-security'
 
 
 [참고 블로그](https://azurealstn.tistory.com/91)
+
+
+
+공식문서를 보면 Spring Security Servlet과 webflux 두가지가 있다.
+https://velog.io/@neity16/WebFlux-2-WebFlux-%EB%9E%80-SpringMVC-vs-WebFlux
