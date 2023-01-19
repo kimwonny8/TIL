@@ -70,7 +70,7 @@ class A {
 
 
 
-## Companion object 왜쓰냐⭐ 
+## Companion object 왜쓰냐⭐
 
 ``` kotlin
 class LoginResponse(val code:Int, val msg:String) {    
