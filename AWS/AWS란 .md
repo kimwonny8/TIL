@@ -38,30 +38,50 @@
 
 
 
-## IAM
+# 📌 클라우딩 컴퓨팅
 
-유저를 관리하고 접근 레벨 및 권한 관리
+### 클라우드 컴퓨팅?
 
-새로 계정 만들면 루트계정 
+- IT 리소스를 인터넷을 통해 온디맨드로 제공하고 사용한 만큼만 비용을 지불하는 것
 
-- 루트안에서 새로운 유저 만들 수 있음 -> 접근키, 비밀키 제공, 패스워드X
-- 매우 세밀한 접근 권한 부여 가능
-- 비밀번호를 수시로 변경 가능
-- 다중 인증 기능 -> root계정은 이 기능 적극 권장!
-- Universal, 지역 설정 필요없음!
+### 클라우드 컴퓨팅의 이점
 
+<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FNuwij%2FbtqFzc7gI37%2FVElWL1PusZaZIRSEAvpKlK%2Fimg.jpg" style="zoom: 67%;" />
 
+- 민첩성 
+  - 클라우드를 통해 광범위한 기술에 쉽게 액세스할 수 있으므로, 더 빠르게 혁신하고 상상할 수 있는 거의 모든 것을 구축할 수 있습니다.
+- 탄력성
+- 비용 절감
+- 몇 분 만에 전 세계에 배포
 
-1. 그룹
-2. 유저
-3. 역할
-4. 정책
-   - 주로 json 형식으로 된 document
-   - 그룹, 역할에 추가 가능
+[출처: AWS](https://aws.amazon.com/ko/what-is-cloud-computing/)
 
 
 
-IAM정책 시뮬레이터
+## 클라우드 컴퓨팅 유형
 
-- 개발환경에서 실제환경으로 빌드하기전 IAM 정책이 잘 작동되는지 테스트
-- IAM과 관련된 문제들을 디버깅, 실제 시뮬레이션해봄 
+### Infrastructure as a Service(IaaS)
+
+### Platform as a Service(PaaS)
+
+### Software as a Service(SaaS)
+
+
+
+> \- **SaaS** (Software as a Service): 서비스에서 호스팅 방식으로 소프트웨어를 제공하는 것
+>
+>  일반적으로 웹에 접속을 하여 로그인등을 통해 사용할 수 있게 되는 서비스다. 대표적으로 웹 메일, 구글 클라우드, 네이버 클라우드, MS OFFICE 365 등이 있다.
+>
+>  
+>
+> \- **PaaS** (Platform as a Service): 플랫폼을 빌려 개발할 수 있게 해주는 서비스
+>
+>  응용 프로그램 자체를 제공하기 때문에 개발자는 빠르고 안전하게 할 수 있다. 또한 데이터베이스 관리, 운영체제 등이 포함된다. 대표적으로 구글 앱 엔진, 오라클 클라우드 플랫폼 등이 있다.
+>
+>  
+>
+> \- **IaaS** (Infrastructure as a Service): 인프라스트럭처, 즉 기반 시설 (서버, 스토리지 등)을 빌려주는 서비스
+>
+>  이 글에서 다룰 AWS처럼 사용한 만큼의 비용을 지불하며 스토리지, 호스팅, 컴퓨팅, 네트워킹등의 인프라를 빌려 사용하는 것이다.
+>
+> [출처](https://jaymunsh.tistory.com/29)
