@@ -84,16 +84,16 @@ dependencies {
 server.port = 9959
 
 spring.datasource.driverClassName=org.mariadb.jdbc.Driver
-spring.datasource.url = jdbc:mariadb://localhost:3306/데이터베이스이름
-spring.datasource.username = 아이디
-spring.datasource.password = 비밀번호
+spring.datasource.url = jdbc:mariadb://localhost:3306/mydays
+spring.datasource.username = root
+spring.datasource.password = root
 
 spring.h2.console.enabled= true
 
-jpa.hibernate.ddl-auto = create
-jpa.properties.hibernate.format_sql = true
-jpa.properties.hibernate.default_batch_fetch_size= 100
-jpa.properties.generate-ddl = true
+spring.jpa.hibernate.ddl-auto = create
+spring.jpa.properties.hibernate.format_sql = true
+spring.jpa.properties.hibernate.default_batch_fetch_size= 100
+spring.jpa.properties.generate-ddl = true
 
 logging.level.org.hibernate.SQL = debug
 logging.level.org.hibernate.type = trace
