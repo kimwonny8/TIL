@@ -9,7 +9,7 @@ vue create frontend
 
 
 
-## vue.config.js 
+## vue.config.js
 
 - SpringBoot 프로젝트(프로젝트명: backend)가 생성되어 있어야 함!
 - 아래와 같이 수정하고 빌드 `npm run build`

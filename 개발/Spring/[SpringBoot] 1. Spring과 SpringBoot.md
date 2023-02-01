@@ -152,7 +152,7 @@ public class MainController {
 
     @GetMapping("/hello")
     @ResponseBody
-    public void index() {
+    public String index() {
     	return "hello";
     }
 }
