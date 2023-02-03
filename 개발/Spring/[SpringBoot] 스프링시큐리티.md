@@ -17,8 +17,80 @@ implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6:3.1.1.RELE
 
 
 
-공식문서를 보면 Spring Security Servlet과 webflux 두가지가 있다.
-https://velog.io/@neity16/WebFlux-2-WebFlux-%EB%9E%80-SpringMVC-vs-WebFlux
+- SpringBoot 2.7+ 버전에서 Spring Security의 WebSecurityConfigurerAdapter를 통해 security config를 override 할 때 오류가 발생함
+
+``` java
+@Configuration
+@RequiredArgsConstructor
+@EnableWebSecurity // Spring Security 설정 활성화
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final CustomOAuth2UserService customOAuth2UserService;
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+
+        http
+                .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/", "/css/**", "/images/**",
+                        "/js/**", "/h2-console/**").permitAll()
+                .antMatchers("/api/v1/**").hasRole(Role.
+                        USER.name())
+                .anyRequest().authenticated()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
+                .oauth2Login()
+                .userInfoEndpoint()
+                .userService(customOAuth2UserService);
+    }
+
+}
+```
+
+아래와 같이 변경 [참고 블로그](https://honeywater97.tistory.com/264)
+
+``` java
+@EnableWebSecurity
+@RequiredArgsConstructor
+@Configuration(proxyBeanMethods = false)
+@ConditionalOnDefaultWebSecurity
+@ConditionalOnWebApplication(type = ConditionalOnWebApplication.Type.SERVLET)
+public class SecurityConfig {
+
+    private final CustomOAuth2UserService customOAuth2UserService;
+
+    @Bean
+    @Order(SecurityProperties.BASIC_AUTH_ORDER)
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf().disable()
+                .headers().frameOptions().disable()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/", "/css/**", "/images/**",
+                        "/js/**", "/h2-console/**").permitAll()
+                .antMatchers("/api/v1/**").hasRole(Role.
+                        USER.name())
+                .anyRequest().authenticated()
+                .and()
+                .logout()
+                .logoutSuccessUrl("/")
+                .and()
+                .oauth2Login()
+                .userInfoEndpoint()
+                .userService(customOAuth2UserService);
+
+        return http.build();
+    }
+}
+```
+
+
 
 
 
