@@ -159,3 +159,31 @@ public class SecurityConfig {
 - `and()` - http 객체의 설정을 이어서 할 수 있게 하는 메서드이다.
 - `csrf().ignoringRequestMatchers(new AntPathRequestMatcher("/h2-console/**"))` - `/h2-console/`로 시작하는 URL은 CSRF 검증을 하지 않는다는 설정이다.
 - 위 처럼 URL 요청시 `X-Frame-Options` 헤더값을 `sameorigin`으로 설정하여 오류가 발생하지 않도록 했다. `X-Frame-Options` 헤더의 값으로 sameorigin을 설정하면 frame에 포함된 페이지가 페이지를 제공하는 사이트와 동일한 경우에는 계속 사용할 수 있다.
+
+
+
+
+
+내가 사용중인 것
+
+``` java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .httpBasic()
+                .and()
+                .authorizeRequests()
+                .antMatchers("/api/user/**").permitAll()
+                .and()
+                .csrf().disable()
+        ;
+
+        return http.build();
+    }
+}
+```
+
