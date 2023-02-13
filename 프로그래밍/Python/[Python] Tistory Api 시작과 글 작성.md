@@ -42,6 +42,13 @@ https://www.tistory.com/oauth/authorize?
 
 주소창에 위 url 입력 후 창이 뜨면 허가 버튼 클릭!
 
+```
+https://www.tistory.com/oauth/authorize?
+  client_id=10fa6f8495c8132fd302919b1bd2a000
+  &redirect_uri=http://wonny.kim/
+  &response_type=code
+```
+
 
 
 ## 3. 리디렉션 처리

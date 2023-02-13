@@ -1,8 +1,8 @@
-마크다운 형식의 파일을 티스토리에 자동 업로드해주는 프로그램 만들기
+pyqt를 이용해 파일을 읽어오기 전에, 파이썬 문법으로 파일을 읽어오는 방법을 알아보자
 
-# 파일 읽기
 
-[점프투파이썬](https://wikidocs.net/26)
+
+## 👉 파일 읽기
 
 ``` python
 f = open("새파일.txt", 'w')
@@ -66,3 +66,77 @@ open(file,encoding='UTF-8')
 open(file,'r',encoding='UTF-8')
 ```
 
+
+
+[참고]([점프투파이썬](https://wikidocs.net/26))
+
+
+
+pyqt를 이용한 파일 불러오기! 
+
+##  👉 PyQt5 - QFileDialog
+
+``` python
+import sys
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTextEdit, QAction, QFileDialog
+from PyQt5.QtGui import QIcon
+
+
+class MyApp(QMainWindow):
+
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.textEdit = QTextEdit()
+        self.setCentralWidget(self.textEdit)
+        self.statusBar()
+        openFile = QAction(QIcon('open.png'), '파일 열기', self)
+        openFile.triggered.connect(self.showDialog)
+
+        menubar = self.menuBar()
+        menubar.setNativeMenuBar(False)
+        fileMenu = menubar.addMenu('&File')
+        fileMenu.addAction(openFile)
+
+        self.setWindowTitle('File Dialog')
+        self.setGeometry(300, 300, 300, 200)
+        self.show()
+
+    def showDialog(self):
+        fname = QFileDialog.getOpenFileName(self, 'Open file', './')
+
+        if fname[0]:
+            f = open(fname[0], 'r', encoding="utf-8")
+
+            with f:
+                data = f.read()
+                self.textEdit.setText(data)
+
+
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    ex = MyApp()
+    sys.exit(app.exec_())
+```
+
+`fname = QFileDialog.getOpenFileName(self, 'Open file', './')`
+
+- QFileDialog를 띄우고, getOpenFileName() 메서드를 사용해서 파일을 선택함
+
+``` python
+if fname[0]:
+    f = open(fname[0], 'r', encoding="utf-8")
+
+    with f:
+        data = f.read()
+        self.textEdit.setText(data)
+```
+
+- 선택한 파일을 읽어서, setText() 메서드를 통해 텍스트 편집 위젯에 불러오기
+- encoding 방식이 맞지 않아 열리지 않을 수 있으니 `encoding="utf-8"` 추가하기
+
+
+
+[공식문서](https://doc.qt.io/qt-5/qfiledialog.html)

@@ -1,7 +1,5 @@
 ## 창의 아이콘 넣기
 
-![](./[pyqt5] 2. 아이콘 설정, 메뉴바와 창 닫기 만들기.assets/2_2_icon_sample.png)
-
 ``` python
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
@@ -46,9 +44,9 @@ self.setGeometry(300, 300, 300, 200)
 
 
 
-## 창 닫기
 
-![](./[pyqt5] 2. 아이콘 설정, 메뉴바와 창 닫기 만들기.assets/2_3_closing_sample2.png)
+
+## 창 닫기
 
 ``` python
 import sys
@@ -106,8 +104,6 @@ btn.clicked.connect(QCoreApplication.instance().quit)
 
 
 ## 메뉴바
-
-![](./[pyqt5] 2. 아이콘 설정, 메뉴바와 창 닫기 만들기.assets/2_6_menubar.png)
 
 ``` python
 import sys
@@ -171,6 +167,6 @@ fileMenu.addAction(exitAction)
 ```
 
 - **menuBar()** -메뉴바를 생성
-- 이어서 'File' 메뉴를 하나 만들고, 거기에 'exitAction' 동작을 추가합니다.
+- 이어서 'File' 메뉴를 하나 만들고, 거기에 'exitAction' 동작을 추가
 - '&File'의 **앰퍼샌드(ampersand, &)** - 간편하게 단축키를 설정하도록 해줌
   - 'F' 앞에 앰퍼샌드가 있으므로 'Alt+F'가 File 메뉴의 단축키가 되고, 만약 'i'의 앞에 앰퍼샌드를 넣으면 'Alt+I'가 단축키가 됨

@@ -83,8 +83,6 @@ public class exampleController {
 
 
 
-
-
 ***
 
 Spring 4.3 버전부터 추가된 RequestMapping 관련 상세 어노테이션 5개!
@@ -118,7 +116,7 @@ Spring 4.3 버전부터 추가된 RequestMapping 관련 상세 어노테이션 5
 - axios 통신시 get방식으로 받을 때 GetMapping 사용
 - @RequestParam으로 받을 것
 
-``` java
+```java
     @GetMapping("/list")
     public List<Board> allList(@RequestParam Map<String, String> params){
         List<Board> BoardList = BoardService.BoardList(params.get("email"));
@@ -152,7 +150,7 @@ Spring 4.3 버전부터 추가된 RequestMapping 관련 상세 어노테이션 5
 - 정보 수정
 - put은 전체 교체, patch는 부분 교체
 
-``` java
+```java
 	@CrossOrigin
     @PutMapping("/update/{num}")
     public void updateBoard(@PathVariable("num") Long num, @RequestBody BoardForm BoardForm) throws Exception {
@@ -174,7 +172,7 @@ Spring 4.3 버전부터 추가된 RequestMapping 관련 상세 어노테이션 5
 - 형식 안맞춰주면 `request method 'get' not supported 405` 와 같은 에러 발생
 
 
-``` javascript
+```javascript
 axios.get("/list", { email: sessionStorage.getItem("email") })
             .then((res) => {
                    console.log(res);
@@ -189,7 +187,7 @@ axios.delete("/delete/"+num,)
              })
 ```
 
-``` javascript
+```javascript
  axios.put("/update/"+num, this.Form)
             .then(() => {
                 alert("수정 완료");
