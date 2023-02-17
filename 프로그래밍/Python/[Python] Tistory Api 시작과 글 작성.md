@@ -1,8 +1,10 @@
-#TISTORY API
+## TISTORY API
 
 
 
-## [1. Open API 사용하기 위해 App등록 - Key 발급](https://www.tistory.com/guide/api/manage/register)
+### [1. Open API 사용하기 위해 App등록 - Key 발급](https://www.tistory.com/guide/api/manage/register)
+
+ 위 주소를 클릭해서 아래와 같이 진행해주세요!
 
 - 서비스명과 설명은 아무거나 상관 없음
 
@@ -16,11 +18,11 @@
 
   
 
-- 앱 관리 - 인증관리 - 설정 - 발급받은 App ID, Secret Key 가 필요함!
+  ⭐ 앱 관리 - 인증관리 - 설정 - 발급받은 **App ID, Secret Key** 가 필요함! ⭐
 
 
 
-## 2. 인증 요청 및 Authentication code 발급
+### 2. 인증 요청 및 Authentication code 발급
 
 ``` 
 https://www.tistory.com/oauth/authorize?
@@ -40,20 +42,13 @@ https://www.tistory.com/oauth/authorize?
 
   
 
-주소창에 위 url 입력 후 창이 뜨면 허가 버튼 클릭!
-
-```
-https://www.tistory.com/oauth/authorize?
-  client_id=10fa6f8495c8132fd302919b1bd2a000
-  &redirect_uri=http://wonny.kim/
-  &response_type=code
-```
+⭐ 주소창에 위 url 을 입력 후 창이 뜨면 허가 버튼 클릭!
 
 
 
-## 3. 리디렉션 처리
+### 3. 리디렉션 처리
 
-허가 후 뜨는 url에서 code 기억해두기
+⭐ 허가 후 뜨는 url에서 code 기억해두기
 
 ```
 https://wonny.kim/?code="코드기억"&state={state-param}
@@ -84,7 +79,7 @@ https://www.tistory.com/oauth/access_token?
 
 
 
-### 👉파이썬 코드로 발급받는 법!
+👉 파이썬 코드로 발급받는 법!
 
 ``` python
 pip install requests
@@ -119,7 +114,7 @@ print(r.text)
 
 
 
-## 📌카테고리 확인
+### 📌카테고리 확인
 
 ```
 GET https://www.tistory.com/apis/category/list?
@@ -132,7 +127,7 @@ GET https://www.tistory.com/apis/category/list?
 
 
 
-###  👉 파이썬으로 확인하기
+👉 파이썬으로 확인하기
 
 ``` python
 import requests
@@ -155,7 +150,7 @@ print (r.text)
 
 
 
-## 📌 글 작성 API
+### 📌 글 작성 API
 
 ```
 https://www.tistory.com/apis/post/write?
@@ -186,7 +181,7 @@ https://www.tistory.com/apis/post/write?
 
 
 
-### 👉 파이썬으로 작성하기
+👉 파이썬으로 작성하기
 
 ``` python
 import requests
