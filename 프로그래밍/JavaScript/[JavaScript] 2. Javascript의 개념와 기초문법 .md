@@ -12,12 +12,16 @@
 -   브라우저 별 지원 문법이 다름
 -   [사이트에서 확인 (작성 날짜 기준 크롬은 올그린)](https://caniuse.com/es6)
 
+
+
 ## 👉기본 문법
 
 -   파일 확장자 js
 -   파일의 첫 줄부터 실행
 -   문장 끝에 세미콜론을 생략하면 자동으로 삽입(ASI, Automatic Semicolon Insertion)
     -   특정한 경우에 추가되므로 적어주는 게 좋음
+    
+    
 
 ## 👉 변수
 
@@ -30,6 +34,8 @@
     -   " "로 만드는 스트링은 무조건 메모리에 잡힘
 -   boolean, null, undefined(선언은 되었으나 값이 없을 때), number, bigint, string, Symbol
 -   자바스크립트의 숫자는 기본적으로 소수임
+
+
 
 ### 2\. 변수 선언과 할당
 
@@ -58,10 +64,14 @@
 -   중괄호를 범위로 가짐
 -   Hoisting X
 
+
+
 ### 3\. Symbol
 
 -   내부적으로 절대 겹치지 않는 값을 생성
 -   프로퍼티 네임으로도 만들 수 있음
+
+
 
 ### 4\. String Template Literals
 
@@ -78,6 +88,8 @@ console.log(str1);
 -   표현식은 `${expression}`
 -   중괄호 생략 X
 -   줄바꿈 적용 가능
+
+
 
 ## 👉연산자 주의할 점
 
