@@ -46,3 +46,18 @@ spring.datasource.password=db계정 비밀번호
 spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
 ```
 
+
+
+## vue
+
+ vue 빌드 후 node_modules 제외 EC2서버로 이
+
+```
+sudo apt update
+sudo apt install nodejs
+sudo apt install npm
+```
+
+
+
+
