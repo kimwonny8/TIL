@@ -185,3 +185,80 @@ app.use((req, res, next) => {
 })
 ```
 
+
+
+### express.json()
+
+- json String
+
+```json
+{
+	"id":123,
+	"name": "abc"
+}
+```
+
+- 자바의 객체로 파싱하면
+
+```json
+{
+	id:123,
+	name: "abc"
+}
+```
+
+
+
+``` javascript
+const express = require('express');
+const path = require('path');
+const dotenv = require('dotenv');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser');
+
+dotenv.config();
+
+const app = express();
+app.set('port', process.env.PORT || 3000);
+
+app.use(morgan('dev'));
+app.use('/', express.static(path.join(__dirname, 'static'))); 
+// localhost:4000/test.jpg 라고 들어가면 static 폴더에서 test파일 찾아서 보여주고 끝
+// 못찾으면 아래로 넘어감
+app.use(express.json()); // json String -> 객체로
+app.use(express.urlencoded({ extended: false })); // 쿼리스트링 인코딩
+app.use(cookieParser(process.env.COOKIE_SECRET)); 
+ 
+
+// 주소 명시 x, 모든 요청이 거쳐감
+app.use((req, res, next) => {
+    console.log('모든 요청이 거쳐갑니다.');
+    next(); // 아래로로
+})
+
+// 해당 주소만 처리
+app.get('/', (req, res) => {
+    // res.send('Hello, Express');
+    res.sendFile(path.join(__dirname, '/index.html'));
+});
+
+// 위 주소가 아닐 때 404 띄울 use
+app.use((req, res, next) => {
+    const err = new Error('wrong request');
+    err.status = 404;
+    next(err);
+});
+
+// 채워주면 그 값 쓰고 아니면 500 써라 -> 공용 모듈
+app.use((err, req, res) => {
+    const status = req.status || 500;
+    // error 출력하는 ui render
+});
+
+
+app.listen(app.get('port'), () => {
+    console.log(app.get('port'), '포트에서 대기 중');
+});
+```
+
+- router 분리할것
