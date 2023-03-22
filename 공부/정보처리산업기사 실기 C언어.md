@@ -332,3 +332,143 @@ int main() {
 - `**array` : array 배열의 첫 번째 포인터가 가리키는 정수의 값 => 12
 - 출력 : `37` ( 24+12+1 )
 
+
+
+## **구조체** **–** 여러가지 자료형을 하나로 만드는 것
+
+``` c
+#include <stdio.h>
+struct jsu {
+    char nae[12];
+    int os, db, hab, hhab;
+}
+int main() {
+    struct jsu st[3] = { {“데이터1”, 95, 88 } , {“데이터2”, 84, 91 } , {“데이터3”, 86, 75 } }; 
+    struct jsu* p;
+    p = &st[0];
+    (p+1)->hab = (p+1)->os + (p+2)->db; 
+    (p+1)->hhab = (p+1)->hab + p->os + p->db; 
+    printf(“%d”, (p+1)->hap + (p+1)->hhab); 
+} 
+```
+
+- p는 구조체를 가르키는 포인터로 사용하겠다. => st 전체를 가르키는 주소
+
+- p 는 데이터1, p+1는 데이터2, p+2는 데이터3
+
+- `->` : 구조체 안에있는 멤버
+
+- `(p+1) ->hab = (p+1)->os + (p+2)->db; `  : 159
+
+  - (p+1) 의 hab 은 (p+1)의 os + (p+2)의 db
+    - (p+1)의 os는 84
+    - (p+2)의 db는 75
+
+- ` (p+1)->hhab = (p+1)->hab + p->os + p->db; ` : 342
+
+  - p->os는 95
+  - p->db는 88
+
+  
+
+```c
+#include <stdio.h>
+int main() {
+    struct insa {
+        char name[10];
+        int age;
+    } a[] = { “Kim”, 28 , “Lee”, 38, “Park”,42, “Choi”, 31 }; 
+    struct insa* p;
+    p = a;
+    p++;
+    printf(“%s \n”, p->name); 
+    printf(“%d \n”, p->age); 
+} 
+```
+
+- p는 a[]의 시작 부분을 가르키고있고
+- `printf(“%s \n”, p->name); ` : `Lee`
+-  `printf(“%d \n”, p->age); `:`38`
+
+
+
+## 사용자 정의 함수
+
+```c
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n<=1) return 1;
+    else return n * factorial(n-1);
+ } 
+
+int main() {
+     int (*pf)(int); 
+     pf = factorial;
+     printf(“%d”, pf(3));   
+} 
+```
+
+- 출력 : `6` ( `printf(“%d”, factorial(3));` )
+
+
+
+``` c
+#include <stdio.h>
+#include <math.h>
+main() {
+      int arr[5];
+      for (int i = 0; i < 5; i++)  arr[i] = (i + 2) +(i * 2); // 2 5 8 11 14
+      for (int i = 0; i < 5; i++)  printf("%d", check(arr[i])); 
+}
+int check (int a) {
+      int n = (int) sqrt(a);
+      int i = 2; 
+      while (i <= n) {
+             if (a % i == 0) return 0;
+             i++;
+       }
+       return 1;
+}
+```
+
+- 출력: `1 1 0 1 0`
+
+
+
+```c
+#include <stdio.h>
+func (int *p) {
+     printf("%d \n", *p);
+     printf("%d \n", p[2]);
+}
+main() { 
+     int a[7] = {1, 2, 3, 4, 5};
+     func(a);
+     func(a + 2);
+}
+```
+
+
+
+
+
+```c
+#include <stdio.h>
+void align (int a[]) {
+    int temp;
+    for (int i = 0; i < 4; i++)
+         for (int j = 0; j < 4 - i; j++) 
+              if (a[j] > a[j+1]) {
+                  temp = a[j];
+                  a[j] = a[j+1];
+                  a[j+1] = temp;
+             }
+ }    
+main() {
+    int a[] = { 85, 75, 50, 100, 95 };
+    align (a);
+    for (int i = 0; i < 5; i++)  printf("%d ", a[i]);
+}
+```
+
