@@ -22,11 +22,41 @@ module.exports = {
   `'migrations-path'`: 실제로 cli가 DB서버에 테이블을 만들도록 도와주는 디렉토리.
   `'seeders-path'`: 실제 데이터들을 넣는 폴더. cli가 데이터들을 보고 DB의 테이블에 데이터들을 넣음.
 
-  
+
+
+
+### 구조 생성
 
 ```
 npx sequelize init
 ```
+
+- `.sequelizerc `에 적혀있는 위치에 생성됨
+
+
+
+### models/index.js
+
+```js
+const Sequelize = require("sequelize");
+
+const env = process.env.NODE_ENV || "development";
+const config = require(__dirname + "/../config/config.json")[env];
+const db = {};
+
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+);
+
+db.sequelize = sequelize;
+
+module.exports = db;
+```
+
+- 최소한의 코드
 
 
 
