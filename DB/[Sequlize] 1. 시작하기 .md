@@ -127,3 +127,21 @@ POSTGRES_DATABASE= (데이터베이스 이름)
 POSTGRES_HOST=127.0.0.1
 ```
 
+
+
+### app.js - sync()  -> 모델 생성
+
+- `app.js` 상단에 작성
+
+```js
+// ... 
+const models = require("./models/index.js");
+
+models.sequelize.sync().then( () => {
+    console.log(" DB 연결 성공");
+}).catch(err => {
+    console.log("연결 실패");
+    console.log(err);
+})
+```
+
