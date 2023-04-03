@@ -57,3 +57,10 @@ module.exports = {
 }
 ```
 
+
+
+### changeOrigin : true
+
+출처를 target URI로 바꾼다는 말. CORS에러를 막기 위한 옵션이다. 
+
+![](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FboXBV7%2FbtrhetMQxPV%2Fj4mIE7Oq2NPUaTfhQ90vNk%2Fimg.png)
