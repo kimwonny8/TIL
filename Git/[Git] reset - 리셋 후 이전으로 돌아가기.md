@@ -2,8 +2,16 @@
 
 `git reflog`
 
-![image-20230509223419766](C:\Users\good3\AppData\Roaming\Typora\typora-user-images\image-20230509223419766.png)
+![image-20230509225231315](./assets/image-20230509225231315.png)
 
-`git reset HEAD@{번호}`
+```
+# git reset HEAD@{번호}
+# git reset 커밋번호
 
-`git reset 맨앞번호`
+git reset HEAD@{11}
+
+git reset 35a7a5f
+```
+
+
+
