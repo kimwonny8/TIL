@@ -1,8 +1,8 @@
 프로젝트 진행 중, 마크다운 에디터로 [toast-ui/vue-editor](https://ui.toast.com/tui-editor)를 사용하고 있는데,
 
-해당 에디터에서 사진 파일 업로드 시 blob 형태로 반환된다.
+해당 에디터에서 사진 파일 업로드 시 base64 형태로 반환된다.
 
-blob이라 길이가 엄청 길기 때문에, s3에 업로드하고 해당 url을 content에 저장하는 방법으로 변경하였다.
+base64이라 길이가 엄청 길기 때문에, s3에 업로드하고 해당 url을 content에 저장하는 방법으로 변경하였다.
 
 
 
@@ -32,7 +32,7 @@ blob이라 길이가 엄청 길기 때문에, s3에 업로드하고 해당 url�
             options: {
                 language: "ko",
                 hooks: {
-                  addImageBlobHook: this.onUploadImage
+                  addImagebase64Hook: this.onUploadImage
                 }
               },
         }
@@ -41,9 +41,9 @@ blob이라 길이가 엄청 길기 때문에, s3에 업로드하고 해당 url�
     Editor
   	},
    methods: {
-        async onUploadImage(blob, callback) {
+        async onUploadImage(base64, callback) {
       const formData = new FormData();
-      formData.append('file', blob);
+      formData.append('file', base64);
 
       try {
         const imageUrl = await this.saveImage(formData);
@@ -106,7 +106,7 @@ node와 vue를 연동한 프로젝트에서 presigned url을 적용한 s3 업로
             options: {
                 language: "ko",
                 hooks: {
-                  addImageBlobHook: this.onUploadImage
+                  addImagebase64Hook: this.onUploadImage
                 }
               },
         }
@@ -115,9 +115,9 @@ node와 vue를 연동한 프로젝트에서 presigned url을 적용한 s3 업로
     Editor
   	},
    methods: {
-        async onUploadImage(blob, callback) {
+        async onUploadImage(base64, callback) {
       const formData = new FormData();
-      formData.append('file', blob);
+      formData.append('file', base64);
 
       try {
         const imageUrl = await this.saveImage(formData);
