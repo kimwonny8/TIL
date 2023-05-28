@@ -77,9 +77,7 @@ async saveImage() {
 
 ```
 
-![image-20230522141804829](./assets/image-20230522141804829.png)
 
-why..
 
 
 
