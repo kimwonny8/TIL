@@ -6,7 +6,38 @@ sudo yum install java-17-amazon-corretto
 java -version
 ```
 
+## ubuntu
 
+```
+sudo apt update
+sudo apt install ruby-full
+sudo apt install wget
+
+cd /home/ubuntu
+
+sudo apt install awscli
+aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
+# 안되면 아래
+aws --debug --no-sign-request s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
+
+chmod +x ./install
+sudo ./install auto
+
+# 아래 코드로 설치 확인
+sudo service codedeploy-agent status
+```
+
+```
+# jdk 17버전 설치
+sudo apt-get install openjdk-17-jdk
+
+# java 설치 확인
+java -version
+```
+
+
+
+## unix
 
 codedeploy 에이전트 설치
 
@@ -18,9 +49,13 @@ sudo yum install wget
 cd /home/ubuntu
 
 sudo yum install awscli
+
 aws s3 cp s3://aws-codedeploy-ap-northeast-2/latest/install . --region ap-northeast-2
 
+wget https://aws-codedeploy-ap-northeast-2.s3.ap-northeast-2.amazonaws.com/latest/install
+
 chmod +x ./install
+
 sudo ./install auto
 ```
 
@@ -28,6 +63,8 @@ sudo ./install auto
 systemctl status codedeploy-agent
 
 systemctl --now enable codedeploy-agent
+
+yum info codedeploy-agent
 ```
 
 https://sangchul.kr/entry/aws-codedeploy-%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EC%84%A4%EC%B9%98codedeploy-agent-install
