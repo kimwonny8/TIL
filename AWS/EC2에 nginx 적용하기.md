@@ -52,20 +52,20 @@
 
 이제 Nginx를 관리할 파일들을 생성해보자. 편하게 관리하기 위해서 아래의 파일들을 생성하고 링크를 걸어준다.
 
-1. /etc/nginx/site_available을 생성하자.
+/etc/nginx/site_available을 생성하자.
 
 ```bash
 sudo mkdir /etc/nginx/site-available
 ```
 
-1. /etc/nginx/site-enabled를 생성하자
+/etc/nginx/site-enabled를 생성하자
 
 ```bash
 sudo mkdir /etc/nginx/site-enabled
 ```
 
-1. 이제 기본 conf 파일을 설정하자.
-   conf 파일은 "/etc/nginx/nginx.conf"파일이다.
+이제 기본 conf 파일을 설정하자.
+conf 파일은 "/etc/nginx/nginx.conf"파일이다.
 
 cat를 통해 파일을 살펴보자.
 
@@ -73,7 +73,7 @@ cat를 통해 파일을 살펴보자.
 sudo vi /etc/nginx/nginx.conf
 ```
 
-1. conf 파일을 살펴보면 다음과 같이 작성되어있다.
+conf 파일을 살펴보면 다음과 같이 작성되어있다.
 
 ```bash
 include /etc/nginx/conf.d/*.conf
@@ -82,10 +82,8 @@ include /etc/nginx/sites-enabled/*.conf
 
 "sites-enabled" 경로의 파일들을 포함하라고 설정되어있다.
 
-1. default config 내용을 구경하로 가자.
-
 ```bash
-sudo cat /etc/nginx/site-enabled/default.conf
+sudo cat /etc/nginx/sites-enabled/default
 ```
 
 접근하면 아래와 같이 설정되어있다.
@@ -146,16 +144,18 @@ server {
 }
 ```
 
-1. nginx를 처음 설치하면 실행되지 않고 있다. 실행해보자.
+2. nginx를 처음 설치하면 실행되지 않고 있다. 실행해보자.
+
+- 해당 블로그에선 `sudo service start nginx` 였으나 아래로 순서 바꿨더니 해결 됨
 
 ```bash
-sudo service start nginx
+sudo service nginx start
 ```
 
 실행하고 status를 살펴보자!
 
 ```bash
-sudo service status nginx
+sudo service nginx status
 ```
 
 정상적인 실행이라면 다음과 같이 나온다.
@@ -178,7 +178,9 @@ Mar 20 18:51:45 ip-172-31-39-107 systemd[1]: Started A high performance web ser
 
 Active부분에 "active(running)"이라고 나온 것을 볼 수 있다.
 
-1. 위의 파일들에 대한 설명
+
+
+위의 파일들에 대한 설명
 
 - sites-available : 해당 파일은 가상 서버에 관련된 서버의 설정들이 위치하는 디렉터리이다. 해당 디렉터리에 존재하는 설정파일들은 사용하지 않더라도 존재한다.
 - sites-enabled : "sites-available"에 존재하는 설정 파일들 중, 사용하는 설정파일만 link하여 사용할 수 있도록 하는 디렉터리이다.
@@ -277,7 +279,7 @@ sudo service nginx restart
 status 확인
 
 ```bash
-sudo service nginx status
+sudo service status nginx
 ```
 
 
